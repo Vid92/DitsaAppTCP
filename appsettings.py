@@ -8,13 +8,16 @@ useDesktopToSaveReports = True
 useDongle = True
 useMac = True
 
-#para server se cambian estas dos lineas y se comentan las 3 siguientes
-#useHostname = 'ditsaServer1.local' 
-#usePort = 65433
-
+'''
+esto sera de manera general
 useHostname = list() #lee el archivo de serverConfig
 usePort = list()
 usePassw = list()
+'''
+#para prueba
+useIp = '192.168.1.73'
+usePort = 9000 #para todos
+
 
 measureWMVoltage = False
 jlinkSNforPIC32 = 820100854

@@ -20,17 +20,17 @@ for i in range(len(useHostname)):
 	print('Received', repr(data))
 '''
 
-ip = '192.168.0.7'
+ip = '192.168.1.73'
 port = 9000
+mssg = 'Hola Mundo'
 
-mssg = 'Hola Mundo, mensaje enviado'
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((ip,port))
-
 s.sendall(mssg.encode())
-data = s.recv(1024)
+data = s.recv(50)
 print("data",data)
+
 print('closing socket')
 
 s.close()
