@@ -202,7 +202,7 @@ if __name__ == "__main__":
 	#print(adr[0])
 	
 	#BCmb.pingClient('192.168.1.73',9000)
-	#BCmb.runClient('192.168.1.73',9000)
+	BCmb.runClient('192.168.1.73',9000)
 	#BCmb.stopClient('192.168.1.73',9000)
 	#BCmb.pauseClient('192.168.1.73',9000)
 	#BCmb.readDataClient('192.168.1.73',9000)
