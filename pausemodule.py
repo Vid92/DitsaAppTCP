@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import time 
 
 from devicemainboard import BCmb
-from appsettings import useHostname,usePort
+from appsettings import useIp,usePort
 
 from ordened import NameOrdened
 import shared
@@ -187,17 +187,18 @@ class Ui_pauseModule(QtWidgets.QDialog):
 			self.textEdit.clear()
 		
 			#---------------------------- Envia comando pause ---------------------------#
-			for j in range(len(useHostname)):
+			
+			for j in range(len(useIp)):
 				section = self.parent.tempAddr[j]
 				for i in range(len(section)):
 					for k in range(len(self.addrs)):
 						if section[i] == self.addrs[k]:
 							
 							if int(section[i]) > 16:
-								x = BCmb.pauseClient(useHostname[j],usePort[j],i+1)
+								x = BCmb.pauseClient(useIp[j],usePort[j],i+1)
 
 							else:
-								x = BCmb.pauseClient(useHostname[j],usePort[j],int(self.addrs[k]))
+								x = BCmb.pauseClient(useIp[j],usePort[j],int(self.addrs[k]))
 
 							if x != None:
 								if x == 'PASS,PAUSE':				
@@ -209,7 +210,7 @@ class Ui_pauseModule(QtWidgets.QDialog):
 							else:
 								self.chtext("None",self.addrs[k])
 								self.flagFail = True
-
+			
 			if self.flagFail != True:
 				time.sleep(3)
 				self.close()

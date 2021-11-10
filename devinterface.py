@@ -10,7 +10,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import SerialPortUtil
 
 import appsettings
-#from appsettings import useHostname, usePort
 from appsettings import useIp, usePort
 
 from communicate import Communicate
@@ -145,7 +144,7 @@ class devInterface(object):
 				raise Exception("devInterface", "No hostname device found!")
 			#print("Sent:")
 			#print(p_data)
-			sct = ClientCommThread(None,ip,port, p_data, b'\x04',timeout,1)
+			sct = ClientCommThread(None,ip,port, p_data, b'\x04',timeout,5)
 			sct.start()
 			sct.join()
 			#print("client thread stopped")
@@ -178,7 +177,7 @@ class devInterface(object):
 				raise Exception("devInterface", "No hostname device found!")
 			#print("Sent:")
 			#print(p_data)
-			sct = ClientCommThread(None,hostname,port, p_data, b'\x04',timeout,1)
+			sct = ClientCommThread(None,hostname,port, p_data, b'\x04',timeout,2)
 			sct.start()
 			sct.join()
 			print("client thread stopped")

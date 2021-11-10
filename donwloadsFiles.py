@@ -2,7 +2,7 @@ import paramiko
 from scp import SCPClient
 
 import appsettings
-from appsettings import useHostname
+from appsettings import useIp
 
 
 class FilesReport():
@@ -10,13 +10,13 @@ class FilesReport():
 	#def openFl(self):
 		self.pssw = pssw
 		#esta parte de pssw que de los datos ditsaserver
-		for i in range(len(useHostname)):
+		for i in range(len(useIp)):
 			try:
 				ssh_client = paramiko.SSHClient()
 				ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 				#ssh_client.connect(hostname='rpitablet.local', username='pi', password='paulina84')
 				#ssh_client.connect(hostname=useHostname, username='CEX', password='rom25123012')
-				ssh_client.connect(hostname=useHostname[i], username='pi', password=self.pssw[i])
+				#ssh_client.connect(hostname=useHostname[i], username='pi', password=self.pssw[i])
 
 				'''
 				sftp = ssh_client.open_sftp()

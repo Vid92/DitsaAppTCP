@@ -343,7 +343,7 @@ class Paint(QtWidgets.QGraphicsView):
 	'''
 
 	def zoomCmb(self,det):
-		#print("zoom comb")
+		print("zoom comb")
 		#print("det:",det)
 
 		if det > 0.8:

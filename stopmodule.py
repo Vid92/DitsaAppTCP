@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 import time 
 from devicemainboard import BCmb
-from appsettings import useHostname,usePort
+from appsettings import useIp,usePort
 
 from ordened import NameOrdened
 import shared
@@ -189,18 +189,18 @@ class Ui_stopModule(QtWidgets.QDialog):
 
 			#---------------------------- Envia comando stop ---------------------------#
 			self.chtext("msg","None")
-
-			for j in range(len(useHostname)):
+			
+			for j in range(len(useIp)):
 				section = self.parent.tempAddr[j]
 				for i in range(len(section)):
 					for k in range(len(self.addrs)):
 						if section[i] == self.addrs[k]:
 
 							if int(section[i]) > 16:
-								x = BCmb.stopClient(useHostname[j],usePort[j],i+1)
+								x = BCmb.stopClient(useIp[j],usePort[j],i+1)
 
 							else:
-								x = BCmb.stopClient(useHostname[j],usePort[j],int(self.addrs[k]))
+								x = BCmb.stopClient(useIp[j],usePort[j],int(self.addrs[k]))
 
 							if x != None:
 								if x == 'PASS,STOP':
@@ -212,7 +212,6 @@ class Ui_stopModule(QtWidgets.QDialog):
 							else:
 								self.chtext("None",self.addrs[i])
 								self.flagFail = True
-
 
 			if self.flagFail != True:
 				time.sleep(3)

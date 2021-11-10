@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 import time 
 from devicemainboard import BCmb
-from appsettings import useHostname,usePort
+from appsettings import useIp,usePort
 
 from ordened import NameOrdened
 import shared
@@ -188,7 +188,8 @@ class Ui_recModule(QtWidgets.QDialog):
 			self.textEdit.clear()
 			#---------------------------- Envia comando run ---------------------------#
 			self.chtext("msg","None")
-			for j in range(len(useHostname)):
+			
+			for j in range(len(useIp)):
 				section = self.parent.tempAddr[j]
 				for i in range(len(section)):
 					for k in range(len(self.addrs)):
@@ -197,10 +198,10 @@ class Ui_recModule(QtWidgets.QDialog):
 							if int(section[i]) > 16:
 								print("section:",section[i])
 								print("i:",i+1)
-								x = BCmb.pingClient(useHostname[j],usePort[j],i+1)
+								x = BCmb.pingClient(useIp[j],usePort[j],i+1)
 
 							else:
-								x = BCmb.pingClient(useHostname[j],usePort[j],int(self.addrs[k]))
+								x = BCmb.pingClient(useIp[j],usePort[j],int(self.addrs[k]))
 								#time.sleep(0.3)#sujeto a cambios
 					
 							print("x:",x)
@@ -215,7 +216,7 @@ class Ui_recModule(QtWidgets.QDialog):
 							else:
 								self.chtext('None',self.addrs[k])
 								self.flagFail = True
-
+			
 			if self.flagFail != True:
 				time.sleep(3)
 				self.close()

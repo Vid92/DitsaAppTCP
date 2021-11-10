@@ -17,7 +17,8 @@ import time
 from devicemainboard import BCmb
 #from datalistenermemory import DataListenerMemory
 
-from appsettings import useHostname,usePort
+#from appsettings import useHostname,usePort
+from appsettings import useIp,usePort
 import shared
 
 #from ordened import NameOrdened
@@ -288,6 +289,7 @@ class Ui_WindowCh(QtWidgets.QDialog):
 		self.chtext("msg","None")
 
 		#for j in range(len(self.parent.saveprograms)):
+		'''
 		if self.textPrograms.currentText() != '':
 
 			for j in range(len(useHostname)):
@@ -364,7 +366,7 @@ class Ui_WindowCh(QtWidgets.QDialog):
 							else:
 								self.chtext('None',self.addrs[k])
 								self.flagFail = True
-								
+		'''						
 
 		if self.flagFail != True:
 			time.sleep(3)

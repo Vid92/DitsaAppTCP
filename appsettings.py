@@ -15,7 +15,7 @@ usePort = list()
 usePassw = list()
 '''
 #para prueba
-useIp = '192.168.1.73'
+useIp = list() #'192.168.1.73' #es probable que sea una lista tambien
 usePort = 9000 #para todos
 
 
